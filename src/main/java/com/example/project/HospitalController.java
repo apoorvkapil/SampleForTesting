@@ -22,22 +22,24 @@ public class HospitalController {
     private HospitalService hospitalService;
 
 
+@RequestMapping(value = "/hospitals/{id}", method = RequestMethod.GET)
 
 public @ResponseBody Hospital getHospital(@PathVariable("id") int id) throws Exception {
-
-        return null;
+        Hospital hospital = this.hospitalService.getHospital(id);
+        return hospital;
     }
 
+@RequestMapping(value = "/hospitals", method = RequestMethod.GET)
 
 public @ResponseBody List<Hospital> getAllHospitals() throws Exception {
-		return null;
+	return this.hospitalService.getAllHospitals();
     }
 
 
 
 public ResponseEntity<String> addHospital(@RequestBody Hospital hospital  ) {
+      return this.hospitalService.addHospital();
 
-	return null;
 }
 
 
